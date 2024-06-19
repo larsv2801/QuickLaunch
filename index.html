@@ -189,10 +189,12 @@
     color:black;
     }
     svg:hover{
-    fill:#c2f8fa;
+    //fill:#c2f8fa;
+    fill:var(--hover-color);
     }
     i:hover{
-    color:#c2f8fa;
+    //color:#c2f8fa;
+    color:var(--hover-color);
     }
     #urn{
     height:40vh;
@@ -303,13 +305,45 @@
     background-color:rgb(21, 96, 130);
     border:none;
     }
+    .setp {
+    color:black;
+    font-size:30px;
+    font-family:Arial;
+    }
+    .sett {
+    /*color:black;
+    font-size:30px;*/
+    width:10vw;
+    border-radius:5px;
+    padding:0vw;
+    margin-left:1vw;
+    }
+    .savbut{
+    position:fixed;
+    bottom:25%;
+    left:90%;
+    background-color:var(--hover-colo);
+    border-radius:5px;
+    width:6vw;
+    height:6vw;
+    border:none;
+    transition: height 0.12s, width 0.12s;
+    }
+    #flopdisk {
+    width:3.2vw;
+    height:3.2vw;
+    margin-left:auto;
+    margin-right:auto;
+    fill:var(--hover-color);
+    }
 </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 </head>
-<body onload="getbg();wn();">
+<!--<body onload="getbg();wn();lod()">-->
+<body onload="lod()">
 <br>
 <label>
 <span onclick="AIshow()"class="strpn"></span>
@@ -319,7 +353,12 @@
 </label>
 <div id="settingsmenu"class="settingsmenu">
   <br>
-  <button onclick="setomhoog()" class="lijn"></button>
+  <button onclick="setomhoog()" id="lijn"class="lijn"></button>
+  <br>
+  <p class="setp" onclick="kleur();">Accent Color:</p>
+  <button onclick="kleur();"></button>
+  <input class="sett" type="color" value="#46b1e1" id="colorPicker">
+  <button onclick="sav()" class="savbut"><svg id="flopdisk"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M48 96V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V170.5c0-4.2-1.7-8.3-4.7-11.3l33.9-33.9c12 12 18.7 28.3 18.7 45.3V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96C0 60.7 28.7 32 64 32H309.5c17 0 33.3 6.7 45.3 18.7l74.5 74.5-33.9 33.9L320.8 84.7c-.3-.3-.5-.5-.8-.8V184c0 13.3-10.7 24-24 24H104c-13.3 0-24-10.7-24-24V80H64c-8.8 0-16 7.2-16 16zm80-16v80H272V80H128zm32 240a64 64 0 1 1 128 0 64 64 0 1 1 -128 0z"/></svg></button>
 </div>
 <iframe id="deai"src="https://huggingface.co/chat/"></iframe>
 <!--<button onclick="zoekOpGoogle()" id="search" style="border-color: rgba(0, 0, 0, 0); color:white;"><svg id="streepkes" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M153.33-240q-14.16 0-23.75-9.62-9.58-9.61-9.58-23.83 0-14.22 9.58-23.72 9.59-9.5 23.75-9.5h653.34q14.16 0 23.75 9.62 9.58 9.62 9.58 23.83 0 14.22-9.58 23.72-9.59 9.5-23.75 9.5H153.33Zm0-206.67q-14.16 0-23.75-9.61-9.58-9.62-9.58-23.84 0-14.21 9.58-23.71 9.59-9.5 23.75-9.5h653.34q14.16 0 23.75 9.61 9.58 9.62 9.58 23.84 0 14.21-9.58 23.71-9.59 9.5-23.75 9.5H153.33Zm0-206.66q-14.16 0-23.75-9.62-9.58-9.62-9.58-23.83 0-14.22 9.58-23.72 9.59-9.5 23.75-9.5h653.34q14.16 0 23.75 9.62 9.58 9.61 9.58 23.83 0 14.22-9.58 23.72-9.59 9.5-23.75 9.5H153.33Z"/></svg></button>-->
@@ -346,8 +385,62 @@
     var hofl = 0;
     document.getElementById("settingsmenu").style.display = "none";
     document.getElementById("deai").style.display = "none";
+    function sav(){
+            localStorage.setItem("kle1", kl1);
+            localStorage.setItem("kle2", kl2);
+        }
+
+        function lod(){
+            var kleur1 = localStorage.getItem('kle1');
+            var kleur2 = localStorage.getItem('kle2');
+            if (kleur1) {
+                document.getElementById("settingsmenu").style.backgroundColor = kleur1;
+                document.getElementById("urn").style.backgroundColor = kleur1;
+                document.getElementById("setbut").style.backgroundColor = kleur1;
+                document.documentElement.style.setProperty('--hover-color', kleur1);
+            } else {
+            document.documentElement.style.setProperty('--hover-color', "#46b1e1");
+            }
+            if (kleur2) {
+                document.getElementById("lijn").style.backgroundColor = kleur2;
+                document.documentElement.style.setProperty('--hover-color', kleur2);
+            } else {
+            document.documentElement.style.setProperty('--hover-colo', "#1e88b8");
+            }
+        }
     function setverschijn(){
     document.getElementById("settingsmenu").style.display = "inline-block";
+    }
+    var kl1 = "#46b1e1";
+    var kl2 = "rgb(21, 96, 130)";
+    var clor;
+    function kleur(){
+    kl1 = document.getElementById("colorPicker").value;
+    clor = kl1.replace(/^#/, '');
+
+            // Parse the r, g, b values
+            let r = parseInt(clor.substring(0, 2), 16);
+            let g = parseInt(clor.substring(2, 4), 16);
+            let b = parseInt(clor.substring(4, 6), 16);
+
+            // Darken each channel by the factor
+            r = Math.floor(r * 0.7);
+            g = Math.floor(g * 0.7);
+            b = Math.floor(b * 0.7);
+
+            // Pad with leading zeros and convert to hex
+            const rr = r.toString(16).padStart(2, '0');
+            const gg = g.toString(16).padStart(2, '0');
+            const bb = b.toString(16).padStart(2, '0');
+
+           kl2 = `#${rr}${gg}${bb}`;
+           document.getElementById("lijn").style.backgroundColor = kl2;
+           document.getElementById("settingsmenu").style.backgroundColor = kl1;
+           document.getElementById("urn").style.backgroundColor = kl1;
+           document.getElementById("setbut").style.backgroundColor = kl1;
+           //document.getElementsByTagName("svg:hover").style.fill = kl1;
+           document.documentElement.style.setProperty('--hover-color', kl1);
+           document.documentElement.style.setProperty('--hover-colo', kl2);
     }
     function setomhoog(){
     if (hofl === 0){
@@ -370,7 +463,7 @@
     x = 0;
     }
     }
-    function savebg() {
+    /*function savebg() {
     var bg = document.getElementById("bgchanger").value;
     var color = document.getElementById("kleurkiezer").value;
     var fnt = document.getElementById("letterkiezer").value;
@@ -411,7 +504,7 @@
         document.getElementById("search").style.color = savedc;
     }
 }
-
+*/
 </script>
 <script type="text/javascript">
 function changebackground(){
