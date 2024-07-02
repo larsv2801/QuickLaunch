@@ -52,7 +52,10 @@
         border-radius: 15px;
         vertical-align: top;
         }
-        input[type="text"]:focus{outline:none;}
+        //input[type="text"]:focus{outline:none;}
+        #zoekter:focus {
+        outline:none;
+        }
         input[type="url"]:focus{outline:none;}
         input[type="url"]{
         padding-left:10px;
@@ -186,11 +189,14 @@
     svg{
     width:40px;
     height:40px;
+    fill:var(--icon-color);
+    color:var(--icon-color);
     }
     i{
     margin-top:0;
     font-size:40px;
     color:black;
+    color:var(--icon-color);
     }
     svg:hover{
     //fill:#c2f8fa;
@@ -302,6 +308,21 @@
     z-index: 9999; /* Zorg ervoor dat dit een hoog genoeg getal is */
     //margin: 55px auto;
     transition: height 0.12s, top 0.12s;
+    display: flex;
+    align-items: center;
+    text-align:center;
+    }
+    .settingsmenu input[type="url"]{
+    background-color:rgba(0,0,0,0);
+    outline-color:var(--hover-colo);
+    outline-style: solid;
+    color:var(--hover-colo);
+    }
+    .settingsmenu input{
+    background-color:rgba(0,0,0,0);
+    outline-color:var(--hover-colo);
+    outline-style: solid;
+    color:var(--hover-colo);
     }
     .lijn {
     width: 3.5vw;
@@ -313,11 +334,13 @@
     color:black;
     font-size:30px;
     font-family:Arial;
+    text-align:center;
+    display:inline-block;
     }
     .sett {
     /*color:black;
     font-size:30px;*/
-    width:10vw;
+    width:10vw10vw;
     border-radius:5px;
     padding:0vw;
     margin-left:1vw;
@@ -340,6 +363,19 @@
     margin-left:auto;
     margin-right:auto;
     fill:var(--hover-color);
+    }
+    .optekst {
+    color:black;
+    font-size:30px;
+    }
+    .checkbo {
+    width:auto;
+    height:auto;
+    border:none;
+    outline-style:none;
+    outline:none;
+    outline-color:rgba(0,0,0,0);
+    border-color:rgba(0,0,0,0);
     }
 </style>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -364,9 +400,13 @@
   <!--<button onclick="kleur();"></button>-->
   <input class="sett" type="color" value="#46b1e1" id="colorPicker">
   <br>
-  <p  class="setp">wallpaper:</p>
-  <input  id="walpp"class="sett"type="url" value="url"></input>
-  <button onclick="kleur();sav();wallp();" class="savbut"><svg id="flopdisk"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M48 96V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V170.5c0-4.2-1.7-8.3-4.7-11.3l33.9-33.9c12 12 18.7 28.3 18.7 45.3V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96C0 60.7 28.7 32 64 32H309.5c17 0 33.3 6.7 45.3 18.7l74.5 74.5-33.9 33.9L320.8 84.7c-.3-.3-.5-.5-.8-.8V184c0 13.3-10.7 24-24 24H104c-13.3 0-24-10.7-24-24V80H64c-8.8 0-16 7.2-16 16zm80-16v80H272V80H128zm32 240a64 64 0 1 1 128 0 64 64 0 1 1 -128 0z"/></svg></button>
+  <p class="setp">Icon Color:</p>
+  <input class="sett" type="color" value="#00000" id="colorIcon">
+  <br>
+  <p  id="waltekst"class="setp">wallpaper:</p>
+  <input  id="walpp"class="sett"type="url" placeholder="url"></input>
+  <br>
+  <button onclick="iconkleur();kleur();sav();wallp();" class="savbut"><svg id="flopdisk"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M48 96V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V170.5c0-4.2-1.7-8.3-4.7-11.3l33.9-33.9c12 12 18.7 28.3 18.7 45.3V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96C0 60.7 28.7 32 64 32H309.5c17 0 33.3 6.7 45.3 18.7l74.5 74.5-33.9 33.9L320.8 84.7c-.3-.3-.5-.5-.8-.8V184c0 13.3-10.7 24-24 24H104c-13.3 0-24-10.7-24-24V80H64c-8.8 0-16 7.2-16 16zm80-16v80H272V80H128zm32 240a64 64 0 1 1 128 0 64 64 0 1 1 -128 0z"/></svg></button>
 </div>
 <iframe id="deai"src="https://huggingface.co/chat/"></iframe>
 <!--<button onclick="zoekOpGoogle()" id="search" style="border-color: rgba(0, 0, 0, 0); color:white;"><svg id="streepkes" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M153.33-240q-14.16 0-23.75-9.62-9.58-9.61-9.58-23.83 0-14.22 9.58-23.72 9.59-9.5 23.75-9.5h653.34q14.16 0 23.75 9.62 9.58 9.62 9.58 23.83 0 14.22-9.58 23.72-9.59 9.5-23.75 9.5H153.33Zm0-206.67q-14.16 0-23.75-9.61-9.58-9.62-9.58-23.84 0-14.21 9.58-23.71 9.59-9.5 23.75-9.5h653.34q14.16 0 23.75 9.61 9.58 9.62 9.58 23.84 0 14.21-9.58 23.71-9.59 9.5-23.75 9.5H153.33Zm0-206.66q-14.16 0-23.75-9.62-9.58-9.62-9.58-23.83 0-14.22 9.58-23.72 9.59-9.5 23.75-9.5h653.34q14.16 0 23.75 9.62 9.58 9.61 9.58 23.83 0 14.22-9.58 23.72-9.59 9.5-23.75 9.5H153.33Z"/></svg></button>-->
@@ -399,16 +439,22 @@
     wall = document.getElementById("walpp").value;
     document.getElementsByTagName('body')[0].style.backgroundImage = "url('" + wall + "')";
     }
+    var ikleur;
+    function iconkleur(){
+    ikleur = document.getElementById("colorIcon").value;
+    }
     function sav(){
             localStorage.setItem("kle1", kl1);
             localStorage.setItem("kle2", kl2);
             localStorage.setItem("wlppr", wall);
+            localStorage.setItem("ickleur", ikleur);
         }
 
         function lod(){
             var kleur1 = localStorage.getItem('kle1');
             var kleur2 = localStorage.getItem('kle2');
             var wallpapr = localStorage.getItem('wlppr');
+            var apkleur = localStorage.getItem('ickleur');
             if (kleur1) {
                 document.getElementById("settingsmenu").style.backgroundColor = kleur1;
                 document.getElementById("urn").style.backgroundColor = kleur1;
@@ -419,7 +465,7 @@
             }
             if (kleur2) {
                 document.getElementById("lijn").style.backgroundColor = kleur2;
-                document.documentElement.style.setProperty('--hover-color', kleur2);
+                document.documentElement.style.setProperty('--hover-colo', kleur2);
             } else {
             document.documentElement.style.setProperty('--hover-colo', "#1e88b8");
             }
@@ -428,6 +474,11 @@
             document.getElementById("walpp").value = wallpapr;
             } else {
             document.getElementsByTagName('body')[0].style.backgroundImage = "url('https://wallpaperset.com/w/full/0/1/d/437245.jpg')";
+            }
+            if (apkleur) {
+            document.documentElement.style.setProperty('--icon-color', apkleur);
+            } else {
+            document.documentElement.style.setProperty('--icon-color', "black");
             }
         }
     function setverschijn(){
