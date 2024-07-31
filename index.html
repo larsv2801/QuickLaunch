@@ -1005,6 +1005,7 @@ z"/>
   });
   function scrsvr(){
   modus = 1;
+  ti = 10;
     console.log("Control + i is ingedrukt!");
     document.getElementsByTagName('body')[0].style.backgroundImage = "url(' https://wallpapers.com/images/featured/amh1tqh06166z417.jpg ')";
     document.documentElement.style.setProperty('--hover-color', "#666666");
@@ -1017,17 +1018,28 @@ z"/>
     document.documentElement.style.setProperty('--hover-colo', "fffffe");
   }
   function modd(){
-  ti += 10;
+  var kleur1 = localStorage.getItem('kle1');
+  var kleur2 = localStorage.getItem('kle2');
+  var wallpapr = localStorage.getItem('wlppr');
+  console.log("storage gedetecteerd");
+  ti += 0.2;
+  console.log(ti);
+  modus = 1;
   if (modus === 1) {
-      document.getElementsByTagName('body')[0].style.backgroundImage = "url(' https://wallpaperset.com/w/full/0/1/d/437245.jpg ')";
-    document.documentElement.style.setProperty('--hover-color', kl1);
-    document.documentElement.style.setProperty('--hover-colo', kl2);
-    document.getElementById("lijn").style.backgroundColor = kl2;
-    document.getElementById("settingsmenu").style.backgroundColor = kl1;
-    document.getElementById("urn").style.backgroundColor = kl1;
-    document.getElementById("setbut").style.backgroundColor = kl1;
-    document.documentElement.style.setProperty('--hover-color', kl1);
-    document.documentElement.style.setProperty('--hover-colo', kl2);
+  console.log("modus gedetecteerd");
+    document.getElementsByTagName('body')[0].style.backgroundImage = "url('" + wallpapr + "')";
+    console.log("wallpaper gedetecteerd");
+      /*document.getElementById("walpp").value = wallpapr;*/
+    document.documentElement.style.setProperty('--hover-color', kleur1);
+    console.log("kleur1 gedetecteerd");
+    document.documentElement.style.setProperty('--hover-colo', kleur2);
+    console.log("kleur2 gedetecteerd");
+    document.getElementById("lijn").style.backgroundColor = kleur2;
+    document.getElementById("settingsmenu").style.backgroundColor = kleur1;
+    document.getElementById("urn").style.backgroundColor = kleur1;
+    document.getElementById("setbut").style.backgroundColor = kleur1;
+    document.documentElement.style.setProperty('--hover-color', kleur1);
+    document.documentElement.style.setProperty('--hover-colo', kleur2);
     modus = 0;
   }
   }
