@@ -244,7 +244,7 @@
     top:0;
     bottom:0;
     width:20px;
-    background: url("https://www.iconspng.com/uploads/menu-icon.png") center / contain no-repeat;
+    background: url("https://creazilla-store.fra1.digitaloceanspaces.com/icons/3206632/menu-icon-md.png") center / contain no-repeat;
     }
     label .voic{
     content: "";
@@ -986,6 +986,59 @@ z"/>
 </div>
 
 <script>
+	var modus = 0;
+  document.addEventListener("keydown", function(event) {
+  if (event.ctrlKey && event.key === "i") {
+  modus = 1;
+    console.log("Control + i is ingedrukt!");
+    document.getElementsByTagName('body')[0].style.backgroundImage = "url(' https://wallpapers.com/images/featured/amh1tqh06166z417.jpg ')";
+    document.documentElement.style.setProperty('--hover-color', "#666666");
+    document.documentElement.style.setProperty('--hover-colo', "fffffe");
+    document.getElementById("lijn").style.backgroundColor = "fffffe";
+    document.getElementById("settingsmenu").style.backgroundColor = "#666666";
+    document.getElementById("urn").style.backgroundColor = "#666666";
+    document.getElementById("setbut").style.backgroundColor = "#666666";
+    document.documentElement.style.setProperty('--hover-color', "#666666");
+    document.documentElement.style.setProperty('--hover-colo', "fffffe");
+    
+  }
+  });
+  function scrsvr(){
+  modus = 1;
+    console.log("Control + i is ingedrukt!");
+    document.getElementsByTagName('body')[0].style.backgroundImage = "url(' https://wallpapers.com/images/featured/amh1tqh06166z417.jpg ')";
+    document.documentElement.style.setProperty('--hover-color', "#666666");
+    document.documentElement.style.setProperty('--hover-colo', "fffffe");
+    document.getElementById("lijn").style.backgroundColor = "fffffe";
+    document.getElementById("settingsmenu").style.backgroundColor = "#666666";
+    document.getElementById("urn").style.backgroundColor = "#666666";
+    document.getElementById("setbut").style.backgroundColor = "#666666";
+    document.documentElement.style.setProperty('--hover-color', "#666666");
+    document.documentElement.style.setProperty('--hover-colo', "fffffe");
+  }
+  function modd(){
+  ti += 10;
+  if (modus === 1) {
+      document.getElementsByTagName('body')[0].style.backgroundImage = "url(' https://wallpaperset.com/w/full/0/1/d/437245.jpg ')";
+    document.documentElement.style.setProperty('--hover-color', kl1);
+    document.documentElement.style.setProperty('--hover-colo', kl2);
+    document.getElementById("lijn").style.backgroundColor = kl2;
+    document.getElementById("settingsmenu").style.backgroundColor = kl1;
+    document.getElementById("urn").style.backgroundColor = kl1;
+    document.getElementById("setbut").style.backgroundColor = kl1;
+    document.documentElement.style.setProperty('--hover-color', kl1);
+    document.documentElement.style.setProperty('--hover-colo', kl2);
+    modus = 0;
+  }
+  }
+  var ti = 10;
+  function aod(){
+  ti -= 1;
+  if (ti < 1){
+  scrsvr();
+  }
+  }
+  setInterval(aod, 1000);
         function zoekOpGoogle() {
             var zoekTerm = document.getElementById("zoekTerm").value;
             if (zoekTerm.trim() !== "") {
