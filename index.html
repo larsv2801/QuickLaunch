@@ -1,3 +1,4 @@
+
   <!DOCTYPE html>
 <html style="scroll-behavior: smooth">
 <head>
@@ -45,7 +46,7 @@
     img { display: inline-block; border-radius: 20px;}
     p {color:white;text-align:center; font-size:50px; display: inline-block;}
     button {border-radius: 60px; height: 30px; background-color: #e8e8e8; color: #bfbfbf;}
-    input {border-radius: 60px; color: black;background-color: #e8e8e8; width: 250px; height: 25px;  display: inline-block;font-family: "Arial";border:none;text-align:10px;padding-left:40px;}
+    input {border-radius: 60px; color: black;/*background-color: #e8e8e8;*/ width: 250px; height: 25px;  display: inline-block;font-family: "Arial";border:none;text-align:10px;padding-left:40px;}
     ::-webkit-scrollbar {width: 1px; height: 1px}
     a {target:_blank}
     textarea {
@@ -59,9 +60,10 @@
         #zoekter:focus {
         outline:none;
         }
-        input[type="url"]:focus{outline:none;}
+        input[type="url"]:focus{outline:none;background-color:rgb(231, 233, 235,0.75);}
         input[type="url"]{
         padding-left:10px;
+        background-color:rgb(231, 233, 235,0.75);
         }
         #knop {
             display: inline-block;
@@ -247,8 +249,9 @@
     transition-timing-function: ease-out;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    #zoekTerm{
+    #zoekTerm{ 
     width:83vh;
+    background-color:rgb(231, 233, 235,0.75);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     label {
@@ -1107,3 +1110,5 @@ z"/>
 </script>
 </body>
 </html>
+
+
