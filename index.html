@@ -194,20 +194,30 @@
     height:40px;
     fill:var(--icon-color);
     color:var(--icon-color);
+    transition:0.5s;
     }
     i{
     margin-top:0;
     font-size:40px;
     color:black;
     color:var(--icon-color);
+    transition:0.5s;
     }
     svg:hover{
     //fill:#c2f8fa;
+    width:42px;
+    height:42px;
     fill:var(--hover-color);
+    transition:0.5s;
+    transition-timing-function: ease-out;
     }
     i:hover{
     //color:#c2f8fa;
+    width:42px;
+    height:42px;
     color:var(--hover-color);
+    transition:0.5s;
+    transition-timing-function: ease-out;
     }
     #urn{
     height:40vh;
@@ -218,6 +228,7 @@
     display: flex; /* Gebruik flexbox */
     justify-content: center; /* Horizontaal centreren */
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     #minutn{
     height:40vh;
@@ -232,9 +243,13 @@
     display: flex; /* Gebruik flexbox */
     justify-content: center; /* Horizontaal centreren */
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     #zoekTerm{
     width:83vh;
+
+        backdrop-filter:blur(90px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     label {
   position: relative;
@@ -276,6 +291,10 @@
     transform: translate(-50%, -50%);
     z-index: 9998; /* Zorg ervoor dat dit een hoog genoeg getal is */
     margin: 55px auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius:15px;
+    outline:none;
+    border:none;
     }
     #setbut {
     position:fixed;
@@ -287,6 +306,7 @@
     height:6vw;
     border:none;
     transition: height 0.12s, width 0.12s;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
     }
     #potlood {
     width:3.5vw;
@@ -296,7 +316,8 @@
     left:90%;
     width:6.5vw;
     height:6.5vw;
-    transition: height 0.12s, width 0.12s;
+    transition: height 0.52s, width 0.52s;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
     }
     .settingsmenu {
     background-color:#46b1e1;
@@ -314,6 +335,7 @@
     display: flex;
     align-items: center;
     text-align:center;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
     }
     .settingsmenu input[type="url"]{
     background-color:rgba(0,0,0,0);
@@ -359,6 +381,7 @@
     height:6vw;
     border:none;
     transition: height 0.12s, width 0.12s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     #flopdisk {
     width:3.2vw;
