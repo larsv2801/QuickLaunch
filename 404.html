@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.obst{
+position:absolute;
+color:green;
+}
+#cont{
+width:100vw;
+height:100vh;
+position: relative;
+}
+body{
+padding:0;
+margin:0;
+background-color:black;
+overflow:hidden;
+}
+h1{
+text-align:center;
+color:white;
+font-family:arial;
+}
+</style>
+</head>
+<body onload="vierhonderds();naarbene()">
+<div id="cont">
+<h1 id="demo">Error 404</h1>
+</div>
+<script>
+var i = 0;
+function vierhonderds(){
+for(let i = 0; i < 50; i++){
+ var newDiv = document.createElement("p");
+    newDiv.classList.add("obst");
+    newDiv.id = "c" + i;
+    newDiv.innerText = "404";
+   var h = document.getElementById("cont")
+    h.appendChild(newDiv);
+    document.getElementById("c" + i).style.left = Math.floor(Math.random() * (99 - 1)) + 1 + "vw";
+    document.getElementById("c" + i).style.top = Math.floor(Math.random() * (80 - 1)) + 1 + "vh";
+    }
+   }
+   function naarbene(){
+   var obstakels = document.getElementsByClassName("obst");
+   for(let i = 0; i < 50; i++){
+   var x = parseFloat(obstakels[i].style.top);
+   x++;
+   document.getElementById("c" + i).style.top = x + "vh";
+   if (x > 90){
+   x = 1;
+   document.getElementById("c" + i).style.top = x + "vh";
+   }
+   }
+   }
+   setInterval(naarbene, 100);
+</script>
+</body>
+</html>
